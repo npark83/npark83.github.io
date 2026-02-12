@@ -86,5 +86,21 @@
       February 2026
     </p>
   </div>
+
+ <script>
+    window.onload = function() {
+      const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeBFS_sRA4Arei9jKnl6ldhTTck3iIyRcv23opB1uUuHfd2eQ/formResponse?usp=pp_url&entry.1536374925=Confirmed&submit=Submit';
+      const formData = new FormData();
+      formData.append('entry.YOUR_ENTRY_ID', 'Visited - ' + new Date().toISOString());
+      formData.append('submit', 'Submit');
+      
+      fetch(formUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).catch(err => console.log('Tracking recorded'));
+    };
+  </script>
+  
 </body>
 </html>
